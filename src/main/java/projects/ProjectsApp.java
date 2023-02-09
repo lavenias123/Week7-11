@@ -20,7 +20,8 @@ public class ProjectsApp {
 	// @formatter:off
 	
 	private List<String> operations = List.of(
-			"1) Add a project"); {
+			"1) Add a project \n2) List Projects"); {
+				
 	// @formatter:on
 	}
 	
@@ -54,7 +55,9 @@ public class ProjectsApp {
 				case 1:
 					createProject();
 					break;
-					
+				case 2:
+					listProjects();
+					break;	
 				default:
 					System.out.println("\n" + selection + " isn't a valid selection.");
 					break;
@@ -68,6 +71,19 @@ public class ProjectsApp {
 		} // while
 	} // processUserSelection
 	
+	private void listProjects() {
+	// 
+		List<Project> projects = projectService.fetchAllProjects();
+		
+		// iterate this list of projects that were fetched
+		System.out.println("\nProjects: ");
+		
+		// lambda expression
+		projects.forEach(project -> System.out.println(" " + project.getProjectId() + ": \t" + project.getProjectName())); // err project. can not be resolved - fixed forgot projects
+		
+	} // listProjects
+
+
 	private void createProject() {
 	// this will gather project details
 		
@@ -138,8 +154,9 @@ public class ProjectsApp {
 	
 	private void printOperations() {
 		// purpose: to displays each menu selection on a new line
+		
 		System.out.println("\n\tThese are the available selections. Press the enter key to quit.");
-	
+		operations.forEach(line -> System.out.println(" " + line));
 	} // printOperations
 		
 	

@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
 import projects.entity.Project;
 import projects.exception.DbException;
@@ -62,5 +63,10 @@ public class ProjectDao extends DaoBase {
 	
 	
 	} // insertProject
+
+	public List<Project> fetchAllProjects() {
+		// TODO Auto-generated method stub
+		return List.of(new Project());
+	}
 
 }
